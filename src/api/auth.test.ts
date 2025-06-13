@@ -22,7 +22,7 @@ test("Has Authorization and ApiKey",() => {
 })
 
 test(" Authorization and No ApiKey",() => {
-    expect(getAPIKey(headersWithoutApiKey)).toBe("hello")
+    expect(getAPIKey(headersWithoutApiKey)).toBeNull()
 })
 
 test(" No Authorization and No ApiKey",() => {
