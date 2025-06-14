@@ -2,29 +2,26 @@ import { describe, expect, test } from "vitest";
 import { getAPIKey } from "./auth";
 import { IncomingHttpHeaders } from "http";
 
-
-
 const headersWithApiKey: IncomingHttpHeaders = {
-   "authorization" : "ApiKey asdfasdfasdf",
-}
-
+  authorization: "ApiKey asdfasdfasdf",
+};
 
 const headersWithoutApiKey: IncomingHttpHeaders = {
-   "authorization" : " asdfasdfasdf",
-}
+  authorization: " asdfasdfasdf",
+};
 
 const headersWithoutAuthorization: IncomingHttpHeaders = {
-    "content-type": " asdfasdfasdf",
-}
+  "content-type": " asdfasdfasdf",
+};
 
-test("Has Authorization and ApiKey",() => {
-    expect(getAPIKey(headersWithApiKey)).toBe("asdfasdfasdf")
-})
+test("Has Authorization and ApiKey", () => {
+  expect(getAPIKey(headersWithApiKey)).toBe("asdfasdfasdf");
+});
 
-test(" Authorization and No ApiKey",() => {
-    expect(getAPIKey(headersWithoutApiKey)).toBeNull()
-})
+test(" Authorization and No ApiKey", () => {
+  expect(getAPIKey(headersWithoutApiKey)).toBeNull();
+});
 
-test(" No Authorization and No ApiKey",() => {
-    expect(getAPIKey(headersWithoutAuthorization)).toBeNull()
-})
+test(" No Authorization and No ApiKey", () => {
+  expect(getAPIKey(headersWithoutAuthorization)).toBeNull();
+});
